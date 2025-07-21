@@ -1,0 +1,9 @@
+TABLE_SELECTOR_PROMPT = """
+You are an intelligent survey assistant. You will be given a question from a user and a dictionary of survey table metadata. Each table's metadata includes its name, column headers, row labels, keywords, and a summary.
+Your task is to select the most appropriate table name that best answers the question, using all available metadata (especially the keywords and summary).
+
+Question: {{question}}
+Options: {{options}}
+Return only the exact table name.
+"""
+

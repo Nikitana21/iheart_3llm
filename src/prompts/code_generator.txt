@@ -1,0 +1,33 @@
+CODE_GENERATOR_PROMPT = """
+You are a Python code assistant. You will be given:
+- A user question
+- Metadata for one selected survey table (its name, row labels, column headers, keywords, and summary)
+
+Your task is to write a clean Python function that filters the DataFrame using only relevant **row** and **column** labels based on the question. Use the keywords and summary to help interpret the question and select the most relevant data.
+
+--- 
+Question:
+{{question}}
+
+Table Metadata:
+{{table_metadata}}
+
+--- 
+Instructions:
+1. The data is in a dictionary df. Use df[table_name] where table_name is from the metadata block.
+   table_name = "Table 1: Please select your sex:"
+   data = df[table_name]
+2. Based on the core intent of the question, **filter only the relevant row and column labels** from the metadata that reflects the question’s main focus.
+3. Do not use any labels not present in the metadata.
+4. If a label appears in both rows and columns:
+     - Prefer the axis where **other terms in the question appear exclusively** and ignore its duplicate on the other axis to avoid overlapping dimensions and ensure consistent interpretation.
+5. Exclude the 'Total' row unless the question clearly asks for an overall summary.
+6. Return the filtered DataFrame.
+
+**Main Function:**
+- All logic must be encapsulated in a function named `main` with the signature: `main(df)`
+- At the top of the function, import `pandas` and any other needed libraries.
+- Inside `main`, after extracting the table using `data = df[table_name]`, set the index using: `data = data.set_index("Category")`. Then use `.loc[row_labels, column_labels]` as needed.
+
+
+"""
