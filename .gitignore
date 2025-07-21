@@ -8,8 +8,6 @@ __pycache__/
 
 # Distribution / packaging
 .Python
-env/
-venv/
 build/
 develop-eggs/
 dist/
@@ -25,48 +23,32 @@ var/
 .installed.cfg
 *.egg
 
-# Installer logs
-pip-log.txt
-pip-delete-this-directory.txt
+# Virtual environments
+venv/
+ENV/
+env/
+.venv/
 
-# Unit test / coverage reports
-htmlcov/
-.tox/
-.nox/
-.coverage
-.coverage.*
-.cache
-nosetests.xml
-coverage.xml
-*.cover
-.hypothesis/
-.pytest_cache/
-
-# Jupyter Notebook
+# Jupyter Notebook checkpoints
 .ipynb_checkpoints
 
-# pyenv
-.python-version
+# Pytest
+.cache/
 
 # mypy
 .mypy_cache/
 .dmypy.json
 
-# Pyre type checker
-.pyre/
-
-# dotenv environment variables
-.env
-
-# VS Code
+# VSCode
 .vscode/
 
-# Data and config
-*.xlsx
-datasets/*.xlsx
-enriched_metadata.json
-config.yml
+# Environment variables
+.env
+.env.*
 
 # OS files
 .DS_Store
-Thumbs.db 
+Thumbs.db
+
+# Excel temp files
+~$*.xlsx 
